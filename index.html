@@ -1,100 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IPAOMTK Downloads</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kesor Youtube | Premium Software Distribution</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
+        :root {
+            --bg-dark: #050505;
+            --accent-blue: #007AFF;
+            --accent-pink: #FF2D55;
+            --glass-white: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #FFFFFF;
+            --text-secondary: #94a3b8;
+        }
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-    .container {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
+        body {
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(0, 122, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(255, 45, 85, 0.15) 0%, transparent 40%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            padding: 24px;
+        }
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
+        .container {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
 
-    p {
-      opacity: 0.8;
-      margin-bottom: 30px;
-      font-size: 14px;
-    }
+        /* Subtle Glow behind the card */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: var(--accent-blue);
+            filter: blur(120px);
+            opacity: 0.1;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
+        .card {
+            background: var(--glass-white);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 48px 32px;
+            text-align: center;
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .btn-antirevoke {
-      background: linear-gradient(135deg, #ff512f, #dd2476);
-    }
+        .logo-container {
+            margin-bottom: 32px;
+        }
 
-    .btn-youtube {
-      background: linear-gradient(135deg, #ff0000, #cc0000);
-    }
+        .logo-svg {
+            width: 72px;
+            height: 72px;
+            filter: drop-shadow(0 0 15px rgba(0, 122, 255, 0.5));
+        }
 
-    footer {
-      margin-top: 25px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-  </style>
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #A5A5A5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Shimmer Effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-blue {
+            background: #007AFF;
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+        }
+
+        footer {
+            margin-top: 48px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 10px #10b981;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>IPAOMTK Installer</h1>
-    <p>Secure & fast install links</p>
+    <div class="container">
+        <div class="card">
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="24" fill="#007AFF"/>
+                    <path d="M50 25L75 70H25L50 25Z" fill="white"/>
+                    <circle cx="50" cy="55" r="8" fill="#007AFF"/>
+                </svg>
+            </div>
+            
+            <h1>IPAOMTK</h1>
+            <p class="description">
+                <span class="status-dot"></span> Server Status: Online<br>
+                Secure deployment for specialized iOS toolkits.
+            </p>
 
-    <a class="btn btn-antirevoke" href="https://file.ipaomtk.com/DNS/IPAOMTK-DNS.mobileconfig">
-      🔒 Anti Revoke
-    </a>
+            <div class="btn-list">
+                <a class="btn btn-blue" href="https://file.ipaomtk.com/DNS/IPAOMTK-DNS.mobileconfig">
+                    <span class="icon-box">🛡️</span>
+                    <span>Anti-Revoke DNS</span>
+                </a>
 
-    <a class="btn btn-youtube" href="itms-services://?action=download-manifest&url=https://signed.ipaomtk.com/plist/YouTube.plist">
-      ▶️ Install YouTube
-    </a>
+                <a class="btn btn-glass" href="https://ipa.ipasign.cc/download/a4d8067eca75">
+                    <span class="icon-box">🎬</span>
+                    <span>Install YouTube</span>
+                </a>
+            </div>
 
-    <footer>
-      © 2026 IPAOMTK
-    </footer>
-  </div>
+            <footer>
+                &copy; 2026 IPAOMTK &bull; V3.0
+            </footer>
+        </div>
+    </div>
 
 </body>
 </html>
